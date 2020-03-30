@@ -9,4 +9,4 @@ curl -XPOST localhost:8080/product -H "Content-Type: application/json" -d '{"nam
 curl -XGET localhost:8080/product -H "Content-Type: application/json"'
 ```
 
-*Please note* that MongoDB is running locally. 
+**Please note** that MongoDB is running locally. 
