@@ -60,6 +60,7 @@ dependencies {
     testCompile "org.grails:grails-gorm-testing-support"
     testCompile "org.mockito:mockito-core"
     testCompile "io.micronaut:micronaut-http-client"
+    testCompile "io.micronaut.configuration:micronaut-hibernate-validator:1.2.0"
     testCompile "org.grails:grails-web-testing-support"
 }
 
