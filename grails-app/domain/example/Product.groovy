@@ -6,6 +6,7 @@ class Product implements MongoEntity<Product> {
 
     String name
     Double price
+    Integer stars
 
     static constraints = {
         name blank: false
