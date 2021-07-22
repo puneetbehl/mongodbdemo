@@ -3,8 +3,8 @@ buildscript {
         maven { url "https://repo.grails.org/grails/core" }
     }
     dependencies {
-        classpath "org.grails:grails-gradle-plugin:$grailsVersion"
-        classpath "org.grails.plugins:views-gradle:2.0.0.RC2"
+        classpath "org.grails:grails-gradle-plugin:$grailsGradlePluginVersion"
+        classpath "org.grails.plugins:views-gradle:2.0.4"
     }
 }
 
@@ -28,8 +28,15 @@ configurations {
     }
 }
 
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        if (details.requested.group == 'org.mongodb' && details.requested.module.name != 'mongodb-driver-rx') {
+            details.useVersion(mongodbDriverVersion)
+        }
+    }
+}
+
 dependencies {
-    developmentOnly("org.springframework.boot:spring-boot-devtools")
     compile "org.springframework.boot:spring-boot-starter-logging"
     compile "org.springframework.boot:spring-boot-autoconfigure"
     compile "org.grails:grails-core"
@@ -49,7 +56,7 @@ dependencies {
     compile "org.grails.plugins:events"
     compile "org.grails.plugins:views-json"
     compile "org.grails.plugins:views-json-templates"
-    compile "org.grails.plugins:mongodb:7.0.0"
+    compile "org.grails.plugins:mongodb"
     compileOnly "io.micronaut:micronaut-inject-groovy"
     console "org.grails:grails-console"
     profile "org.grails.profiles:rest-api"
