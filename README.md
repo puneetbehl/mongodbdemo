@@ -1,6 +1,6 @@
 # Grails 4 MongoDB Sample Application
 
-This is a Grails 4 sample application with GORM MongoDB 7.0.0
+This is a Grails 4 sample application with GORM MongoDB 7.0.1
 
 In order to test run the following CURL commands: 
 
